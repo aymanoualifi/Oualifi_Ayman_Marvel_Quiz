@@ -1,37 +1,20 @@
 database = [
 
-    {
-        "name": "Spider-Man",
-        "red": True, "big": False,
-        "mask": True, "good": True
-    },
+    {"name":"iron man", "human":True, "woman":False, "big":False, "mask":False},
+    
+    {"name":"black widow", "human":True, "woman":True, "big":False, "mask":False },
 
-    {
-        "name": "Hulk",
-        "red": False, "big": True,
-        "mask": False, "good": True
-    },
+    {"name":"hulk", "human":False, "woman":False, "big":True, "mask":False},
 
-    {
-        "name": "Thanos",
-        "red": False, "big": False,
-        "mask": False, "good": False
-    },
+    {"name":"spider man", "human":True, "woman":False, "big":False, "mask":True}
 
-    {
-        "name": "Galactus",
-        "red": True, "big": False,
-        "mask": True, "good": False
-    }
-
-]
-
+    ]
 
 def take_chance(answer, property):
     if answer == "y":
-        answer = True
+        ans = True
     else:
-        answer = False
+        ans = False
 
     to_remove=[]
     for d in database:
@@ -40,21 +23,21 @@ def take_chance(answer, property):
 
     for i in to_remove:
         database.remove(i)
-        print(len(database))
 
     if len(database) == 1:
-        print("I think your character is " + database[0]["name"])
+        print("your character is "+database[0]["name"])
         quit()
 
 
-ans = input("Is your character red? [Y/N]")
-take_chance(ans, "red")
+
+ans = input("Is your character human? [Y/N]")
+take_chance(ans, "human")
+
+ans = input("Is your character a woman? [Y/N]")
+take_chance(ans, "woman")
 
 ans = input("Is your character big? [Y/N]")
 take_chance(ans, "big")
 
 ans = input("Does your character wear a mask? [Y/N]")
 take_chance(ans, "mask")
-
-ans = input("Is your character a good guy? [Y/N]")
-take_chance(ans, "good")
